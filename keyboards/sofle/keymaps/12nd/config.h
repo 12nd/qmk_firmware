@@ -22,6 +22,8 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options. */
 
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#    undef ENCODER_RESOLUTION
+#    define ENCODER_RESOLUTION 4
 
 #if defined(KEYBOARD_sofle_rev1)
 // Add RGB underglow and top facing lighting
