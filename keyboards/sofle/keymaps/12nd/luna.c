@@ -41,6 +41,7 @@ led_t led_usb_state;
 
 bool isSneaking = false;
 bool isJumping  = false;
+bool isBarking  = false;
 bool showedJump = true;
 
 /* logic */
@@ -121,7 +122,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
         current_frame = (current_frame + 1) % 2;
 
         /* current status */
-        if (led_usb_state.caps_lock) {
+        if (isBarking || led_usb_state.caps_lock) {
             oled_write_raw_P(bark[current_frame], ANIM_SIZE);
 
         } else if (isSneaking) {
@@ -255,6 +256,14 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
                 isSneaking = true;
             } else {
                 isSneaking = false;
+            }
+            break;
+        case KC_LSFT:
+        case KC_RSFT:
+            if (record->event.pressed) {
+                isBarking = true;
+            } else {
+                isBarking = false;
             }
             break;
         case KC_SPC:
