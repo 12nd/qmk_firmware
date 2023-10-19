@@ -27,6 +27,16 @@ for more options. */
 #    undef  ENCODER_RESOLUTION
 #    define ENCODER_RESOLUTION 4
 
+// OLED settings
+#ifdef OLED_ENABLE
+	#define OLED_TIMEOUT 60000			//60000 = 60secs, 120000 = 2mins in ms.
+	#define OLED_BRIGHTNESS 90			//Default is 100.
+	#define SPLIT_OLED_ENABLE			//Synx on/off OLED state between halves (+100).
+	#ifdef WPM_ENABLE
+		#define SPLIT_WPM_ENABLE			//Enable WPM across split keyboards (+106-268).
+	#endif
+#endif
+
 #if defined(KEYBOARD_sofle_rev1)
 // Add RGB underglow and top facing lighting
 #    define WS2812_DI_PIN D3

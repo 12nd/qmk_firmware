@@ -16,7 +16,13 @@
   */
 
 #include QMK_KEYBOARD_H
-#include "oled.c"
+
+#ifdef OLED_ENABLE
+	//#include "oled.c" //Stock OLED code
+	//Note that the keyboard animations below take a large amount of space!
+		//#include "bongocat.c" //OLED code for Bongocat, original code by foureight84.
+		#include "luna.c" //OLED code for Luna, original code by Hellsingcoder and adapted by Jackasaur.
+#endif
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
