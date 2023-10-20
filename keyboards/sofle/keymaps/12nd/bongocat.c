@@ -8,8 +8,7 @@ uint32_t oled_timer = 0; //OLED timeout
 led_t led_usb_state;
 
 static void print_status_narrow(void) {
-/*    // Print current mode
-    oled_write_P(PSTR("\n\n"), false);
+/*    // Print current mode oled_write_P(PSTR("\n\n"), false);
     oled_write_ln_P(PSTR("MODE"), false);
     oled_write_ln_P(PSTR(""), false);
     if (keymap_config.swap_lctl_lgui) {
@@ -201,12 +200,12 @@ static void render_anim(void) {
 bool oled_task_user(void) {
 	led_usb_state = host_keyboard_led_state();
     if (is_keyboard_master()) {
-		if (timer_elapsed32(oled_timer) > 30000) {
-			oled_off();
-			return false;
-		} else {
-			oled_on();
-		}
+		/* if (timer_elapsed32(oled_timer) > 30000) { */
+		/* 	oled_off(); */
+		/* 	return false; */
+		/* } else { */
+		/* 	oled_on(); */
+		/* } */
         print_status_narrow();
     } else {
         oled_set_cursor(0,1);

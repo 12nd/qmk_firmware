@@ -37,7 +37,7 @@ for more options. */
 	#endif
 #endif
 
-#if defined(KEYBOARD_sofle_rev1)
+#if defined(KEYBOARD_sofle_rev1) && defined(RGBLIGHT_ENABLE)
 // Add RGB underglow and top facing lighting
 #    define WS2812_DI_PIN D3
 #    define RGBLED_NUM 72
