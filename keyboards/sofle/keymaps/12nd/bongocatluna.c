@@ -32,6 +32,7 @@
 
 /* timers */
 uint32_t anim_timer = 0;
+uint32_t anim_timer_bongo = 0;
 
 /* current frame */
 uint8_t current_frame = 0;
@@ -248,8 +249,8 @@ static void render_bongocat(void) {
     }
 
     /* animation timer */
-    if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
-        anim_timer = timer_read32();
+    if (timer_elapsed32(anim_timer_bongo) > ANIM_FRAME_DURATION) {
+        anim_timer_bongo = timer_read32();
         animate_bongocat();
     }
 }

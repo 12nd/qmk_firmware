@@ -27,10 +27,19 @@ for more options. */
 #    undef  ENCODER_RESOLUTION
 #    define ENCODER_RESOLUTION 4
 
+#define SPLIT_ACTIVITY_ENABLE
+#define SPLIT_TRANSPORT_MIRROR
+#define SERIAL_DEBUG
+#define DEBUG_MATRIX_SCAN_RATE
+#define SELECT_SOFT_SERIAL_SPEED 5
+// #define SPLIT_USB_DETECT
+// #define SPLIT_USB_TIMEOUT 2500
+
 // OLED settings
 #ifdef OLED_ENABLE
 	#define OLED_TIMEOUT 60000			//60000 = 60secs, 120000 = 2mins in ms.
 	#define OLED_BRIGHTNESS 90			//Default is 100.
+    #define OLED_UPDATE_INTERVAL 50
 	#define SPLIT_OLED_ENABLE			//Synx on/off OLED state between halves (+100).
 	#ifdef WPM_ENABLE
 		#define SPLIT_WPM_ENABLE			//Enable WPM across split keyboards (+106-268).
@@ -46,7 +55,7 @@ for more options. */
 #    ifdef RGB_MATRIX_ENABLE
 #        define RGB_MATRIX_LED_COUNT RGBLED_NUM
 #        define RGB_MATRIX_SPLIT RGBLED_SPLIT
-#        define SPLIT_TRANSPORT_MIRROR
+// #        define SPLIT_TRANSPORT_MIRROR
 #    else
 #        define RGBLIGHT_EFFECT_BREATHING
 #        define RGBLIGHT_EFFECT_RAINBOW_MOOD
