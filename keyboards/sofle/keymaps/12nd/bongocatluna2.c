@@ -374,19 +374,31 @@ static void render_bongocat(void) {
 		oled_write("LAYER", false);
 
 		oled_set_cursor(0,3);
-		switch (get_highest_layer(layer_state)) {
+
+        uint8_t current_layer = get_highest_layer(layer_state);
+        char current_layer_str[4];
+		switch (current_layer) {
 			case 0:
-				oled_write("Base ", false);
+				oled_write_ln("Base", false);
 				break;
 			case 1:
-				oled_write("Colemak ", false);
+				oled_write_ln("Alt 1", false);
 				break;
 			case 2:
-				oled_write("Lower ", false);
+				oled_write_ln("Alt 2", false);
 				break;
 			case 3:
-				oled_write("Raise", false);
+				oled_write_ln("Game", false);
 				break;
+			case 4:
+				oled_write_ln("Lower", false);
+				break;
+			case 5:
+				oled_write_ln("Raise", false);
+				break;
+            default:
+                itoa(current_layer, current_layer_str, 10);
+				oled_write_ln(current_layer_str, false);
 		}
 
 		/* lock status */
